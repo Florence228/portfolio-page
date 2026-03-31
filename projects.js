@@ -108,7 +108,7 @@ const ABOUT = {
     "Currently a junior at NYU Shanghai studying Interactive Media Arts. Open to collaborations, residencies, and internships globally."
   ],
   tools: ["p5.js", "Unreal Engine", "Arduino", "TouchDesigner", "Blender", "Unity", "Three.js", "Web Design", "After Effects", "Python"],
-  photo: "images/self-photo.jpg",   // 填你的照片URL，或留空
+  photo: "images/self-photo.JPG",   // 填你的照片URL，或留空
   email: "kj2527@nyu.edu",
   github: "",
   instagram: "https://www.instagram.com/dyaksh5/",
