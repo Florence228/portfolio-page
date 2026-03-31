@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- animated background -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="grain"></div>
+
+  <!-- custom cursor -->
+  <div id="cursorRing"></div>
+  <div id="cursorDot"></div>
+
+  <!-- ═══ PAGE: HOME ═══ -->
+  <div id="pageHome" class="page active">
+
+    <header>
+      <a class="logo" href="#" onclick="goHome(event)">
+        <span id="hdrName">Florence Jiang</span>
+        <span class="logo-dot">·</span>
+        <span class="logo-sub">IMA</span>
+      </a>
+      <nav>
+        <a onclick="scrollTo('work',event)">Work</a>
+        <a onclick="scrollTo('about',event)">About</a>
+        <a onclick="scrollTo('contact',event)">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">
+        <span class="tag-line"></span>
+        <span>Interactive Media Artist</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="ht-row"><em>Making</em></span>
+        <span class="ht-row ht-mid">
+          <span class="ht-count" id="heroCount">00</span>
+          <span>Worlds</span>
+        </span>
+        <span class="ht-row">from <em>code.</em></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-loc" id="heroProgram">NYU Shanghai · IMA · Class of 2027</p>
+        <div class="hero-scroll-hint">
+          <div class="scroll-track"><div class="scroll-thumb"></div></div>
+          <span>Scroll</span>
+        </div>
+      </div>
+
+      <div class="hero-ticker">
+        <div class="ticker-inner">
+          <span>Creative Coding &nbsp;/&nbsp; Generative Art &nbsp;/&nbsp; Physical Computing &nbsp;/&nbsp; Sound Design &nbsp;/&nbsp; Data Visualisation &nbsp;/&nbsp; XR &nbsp;/&nbsp; Net Art &nbsp;/&nbsp; Installation &nbsp;&nbsp;&nbsp;</span>
+          <span aria-hidden="true">Creative Coding &nbsp;/&nbsp; Generative Art &nbsp;/&nbsp; Physical Computing &nbsp;/&nbsp; Sound Design &nbsp;/&nbsp; Data Visualisation &nbsp;/&nbsp; XR &nbsp;/&nbsp; Net Art &nbsp;/&nbsp; Installation &nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sec-head">
+        <span class="sec-num">001</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo">
+          <div id="photoWrap" class="photo-wrap">
+            <div class="photo-ph"><span>Photo</span></div>
+          </div>
+          <div class="photo-cap">
+            <span id="capName"></span>
+            <span id="capProgram"></span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-lead" id="aboutLead"></p>
+          <div id="aboutBio" class="about-bio"></div>
+          <div id="toolsList" class="tools-list"></div>
+        </div>
+      </div>
+    </section>
+
+     <!-- WORK -->
+    <section id="work">
+      <div class="sec-head">
+        <span class="sec-num">002</span>
+        <h2>Selected Work</h2>
+      </div>
+      <div id="projectList" class="project-list"></div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sec-head">
+        <span class="sec-num">003</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-wrap">
+        <p class="contact-big">Let's make<br><em>something</em><br>together.</p>
+        <div class="contact-right">
+          <a class="contact-email" id="contactEmail" href="#"></a>
+          <div class="contact-links" id="contactLinks"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span id="footerName"></span>
+      <span>NYU Shanghai · IMA</span>
+    </footer>
+
+  </div><!-- /pageHome -->
+
+  <!-- ═══ PAGE: PROJECT DETAIL ═══ -->
+  <div id="pageProject" class="page">
+
+    <header class="proj-header">
+      <button class="back-btn" onclick="goHome()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 3L5 9L11 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        All Work
+      </button>
+      <a class="logo" href="#" onclick="goHome(event)">
+        <span id="projHdrName"></span>
+      </a>
+    </header>
+
+    <div class="proj-wrap">
+
+      <!-- hero -->
+      <div class="proj-hero">
+        <div class="proj-hero-meta">
+          <span id="pNum" class="p-num"></span>
+          <span id="pCategory" class="p-cat"></span>
+          <span id="pYear" class="p-year"></span>
+        </div>
+        <h1 class="proj-title" id="pTitle"></h1>
+        <div class="proj-cover" id="pCover"></div>
+      </div>
+
+      <!-- body -->
+      <div class="proj-body">
+
+        <aside class="proj-sidebar">
+          <dl class="proj-info">
+            <div class="pi-row"><dt>Medium</dt><dd id="siMedium"></dd></div>
+            <div class="pi-row"><dt>Year</dt><dd id="siYear"></dd></div>
+            <div class="pi-row"><dt>Role</dt><dd id="siRole"></dd></div>
+          </dl>
+          <div class="proj-ext-links" id="projExtLinks"></div>
+        </aside>
+
+        <div class="proj-main">
+          <div class="proj-section-label">Overview</div>
+          <div class="proj-full-desc" id="pFullDesc"></div>
+
+          <div class="proj-details-block" id="pDetailsBlock">
+            <div class="proj-section-label">Details</div>
+            <ul class="proj-details-list" id="pDetailsList"></ul>
+          </div>
+
+          <div class="proj-images-block" id="pImagesBlock">
+            <div class="proj-section-label">Gallery</div>
+            <div class="proj-gallery" id="pGallery"></div>
+          </div>
+        </div>
+
+      </div><!-- /proj-body -->
+
+      <!-- prev/next -->
+      <nav class="proj-nav">
+        <button id="prevBtn" class="pnav-btn pnav-prev" onclick="shiftProject(-1)">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div><span class="pnav-label">Previous</span><span class="pnav-title" id="prevTitle"></span></div>
+        </button>
+        <button id="nextBtn" class="pnav-btn pnav-next" onclick="shiftProject(1)">
+          <div><span class="pnav-label">Next</span><span class="pnav-title" id="nextTitle"></span></div>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </button>
+      </nav>
+
+    </div><!-- /proj-wrap -->
+  </div><!-- /pageProject -->
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
